@@ -12,7 +12,7 @@ This came as a surprise because we were using [ISO8601][ISO8601] timestamps with
 so every client _should_ still have been able to decode the timestamp correctly _even though_ the offset had changed.
 
 It turned out that the mobile application was using a [parser][ISO_INSTANT] which _only_ supports ISO timestamps
-with the [Z suffix][ISO8601_Z] (i.e UTC) and the backend was now serving them in local time.
+with the [Z suffix][ISO8601_Z] (i.e UTC)[^omegastar] and the backend was now serving them in local time.
 
 Since one can never be sure that an update to a mobile application reaches all users, we had to adapt the backend
 to continue serving the timestamps in UTC, but now on purpose rather than by accident.
@@ -200,7 +200,7 @@ module GraphQL
 end
 ```
 
-... and it "just works" as if that was how `graphql-ruby` always works:
+... and it "just works" as if that was how `graphql-ruby` always worked:
 
 ```ruby
 irb> GraphQL::Types::ISO8601DateTime.coerce_result(my_time, nil)
@@ -210,6 +210,7 @@ irb> GraphQL::Types::ISO8601DateTime.coerce_result(my_time, nil)
 # Footnotes
 
 [^timezone]: You can spell it _timezone_, _time-zone_, or _time zone_ according to [StackExchange](https://english.stackexchange.com/a/3937).
+[^omegastar]: I blame the [OmegaStar](https://youtu.be/y8OnoxKotPQ?t=80) team for this.
 [^go_parse_yourself]: I'm sure you're itching to implement a parser for this if you're a [Golang](https://youtu.be/vcFBwt1nu2U?t=2980) programmer.
 [^y2k38]: If you plan to use your system in the [year 2038 or beyond](https://en.wikipedia.org/wiki/Year_2038_problem), please don't use `Int` for Unix timestamps. 
 [^scope_reopening]: I'm not sure whether _scope reopening_ is the correct computer science term for this. I got it from Obie's [Introduction to Rails](https://ruby-doc.org/docs/Introduction%20to%20Ruby%20and%20RoR%20given%20to%20the%20Agile%20Atlanta%20User%20Group/Ruby%20On%20Rails.ppt).

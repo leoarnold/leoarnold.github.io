@@ -1,0 +1,38 @@
+---
+layout: post
+title:  "Monads in Haskell, explain like I'm five"
+date:   "2023-05-13T00:54:59+02:00"
+tags:
+  - Haskell
+  - monads
+  - functional programming
+---
+
+dfshfjsdhfk
+
+>If you know how to play [Dominoes][Dominoes], then you can understand monads.
+
+sdfsdf
+
+```haskell
+import Data.Time (getCurrentTime)
+import Data.Time.Format.ISO8601 (iso8601Show)
+
+main :: IO ()
+main = do
+  now <- getCurrentTime
+  putStrLn (iso8601Show now)
+```
+
+# What is Haskell, and why is it so special?
+
+Some people write [single vowel poems][Eunoia], others try to construct a human language [without irregular verbs][Esperanto],
+and some create a programming language just to prove an academic point. This is how the [Haskell][Haskell] programming language came to be.
+
+[Crockford_Purity]: https://youtu.be/b0EF0VTs9Dc?t=320
+[Dominoes]: https://en.wikipedia.org/wiki/Dominoes
+[Esperanto]: https://www.sandiegoreader.com/news/2001/jun/14/sightseer-esperanto-no-irregular-verbs/
+[Eunoia]: https://en.wikipedia.org/wiki/Eunoia_(book)
+[ghci]: https://downloads.haskell.org/ghc/latest/docs/users_guide/ghci.html
+[Haskell]: https://en.wikipedia.org/wiki/Haskell#History
+[Tsoding]: https://youtu.be/fCoQb-zqYDI?t=367
